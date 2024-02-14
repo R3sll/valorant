@@ -1,0 +1,43 @@
+<main>
+  <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-body-tertiary">
+    <div class="col-md-6 p-lg-5 mx-auto my-5">
+      <div class="mb-3">
+        <%= image_tag asset_path('valorant-big-logo.svg'), class: 'logo-big', alt: 'VALORANT' %>
+      </div>
+      <h2 class="display-4"><%= @team.name.upcase %></h2>
+      <p class="lead">We are <%= @team.name.upcase %>: a top eSports team known for skill, strategy, and teamwork. Join us as we conquer the competitive scene and strive for victory.</p>
+    </div>
+  </div>
+  <% @team.players.each_with_index do |player, index| %>
+    <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+      <% if index.even? %>
+        <div class="bg-body-secondary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+        <% else %>
+          <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+          <% end %>
+          <div class="my-3 p-3">
+            <h2 class="display-5"><%= player.nick %></h2>
+            <p class="lead"><%= player.agent.name.upcase %></p>
+            <%= link_to [player.team, player], data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+              <% if index.even? %>
+                <% image_tag asset_path('bin.svg'), class: 'logo-mini', alt: 'bin'%>
+              <%else%>
+                <% image_tag asset_path('bin-white.svg'), class: 'logo-mini', alt: 'bin-white'%>
+              <% end %>
+            <% end %>
+          </div>
+          <%= image_tag asset_path('team-logo.png'), class: 'pic last', alt: 'team-logo' %>
+        </div>
+      </div>
+    <% end %>
+  </main>
+  <%= content_for :footer do %>
+    <p class="actions-links">
+      <%= link_to "New Player |", new_team_player_path(@team), class: 'link-unstyled' %>
+      <%= link_to "Edit |", edit_team_path(@team), class: 'link-unstyled' %>
+      <%= link_to "Destroy |", team_path(@team), class: 'link-unstyled', data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure? Causes all players to be deleted!"
+    } %>
+    </p>
+  <% end %>

@@ -1,0 +1,21 @@
+<% if flash[:alert] %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+
+<div class="d-flex justify-content-center">
+  <%= form_with model: [@team, @team.players.build], class: "needs-validation", novalidate: true do |form| %>
+    <div class="mb-3 text-center">
+      <%= form.label :nick,"ENTER NICK" , class: "form-label h3" %>
+      <%= form.text_field :nick, class: "form-control text-center form-control-lg",placeholder: "nick",required: true%>
+    </div>
+    <div class="mb-3 text-center">
+      <%= form.label :agent_id, "PICK AN AGENT", class: "form-label h3" %>
+      <%= form.collection_select(:agent_id, Agent.order(:name), :id, :name, { }, { class: "form-select text-center form-select-lg" }) %>
+    </div>
+    <div class="mb-3 text-center button-w">
+      <%= form.submit "SUBMIT", class: "btn btn-primary btn-dark btn-lg w-75" %>
+    </div>
+  <% end %>
+</div>

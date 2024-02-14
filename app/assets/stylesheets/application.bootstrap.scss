@@ -1,0 +1,73 @@
+@import "bootstrap";
+// @import 'bootstrap/scss/bootstrap';
+// @import 'bootstrap-icons/font/bootstrap-icons';
+
+.flex-md-equal>* {
+    flex: 1;
+}
+
+/* Valorant logo */
+.logo-big {
+    width: 70%;
+    height: auto;
+}
+
+.logo-mini { // Also bin svg
+    width: 24px;
+    height: 24px;
+}
+
+.logo-footer {
+    width: 30px;
+    height: 30px;
+}
+
+/* Button in forms */ 
+.button-w {
+    width: 500px;
+}
+
+/* CRUD links */
+.actions-links {
+    float: right;
+}
+
+/* Links */
+.link-unstyled {
+    color: inherit;
+    text-decoration: none;
+}
+
+.link-unstyled:hover {
+    color: #ff4855;
+}
+
+/* Pictures */
+.pic {
+    width: 80%;
+    height: 300px;
+    border-radius: 21px 21px 0 0;
+    object-fit: cover;
+    object-position: center;
+}
+
+.pic.last {
+    width: 40%;
+}
+
+.pic.agent {
+    height: 100%;
+}
+
+.pic.pos_top {
+    object-position: center top;
+}
+
+.pic.pos_bot {
+    object-position: center bottom;
+}
+
+/* Footer */
+.footer-bg {
+    background-color: rgba(0, 0, 0, 0.05);
+}

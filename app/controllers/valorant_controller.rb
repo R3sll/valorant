@@ -1,0 +1,2 @@
+class ValorantController < ApplicationController
+end

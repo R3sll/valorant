@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Valorant</title>
+    <link rel="icon" type="image/png" href=<%= asset_path('valorant-white.svg')%>>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application.bootstrap', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_importmap_tags %>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md bg-dark sticky-top border-bottom" data-bs-theme="dark">
+      <div class="container">
+        <ul class="navbar-nav flex-grow-1 justify-content-between">
+          <li class="nav-item"><a class="nav-link" href="<%= root_path %>">
+              <%= image_tag asset_path('valorant-white.svg'), class: 'logo-mini', alt: 'valorant' %>
+            </a></li>
+          <li class="nav-item"><a class="nav-link" href="/agents/">Agents</a></li>
+          <li class="nav-item"><a class="nav-link" href="/teams/">Teams</a></li>
+        </ul>
+      </div>
+    </nav>
+    <%= yield %>
+
+    <footer class="text-bg-dark text-center text-lg-start">
+      <div class="footer-bg text-center p-3">
+        <%= image_tag asset_path('valorant-white.svg'), class: 'logo-footer', alt: 'valorant' %>
+        © 2024 Copyright
+        <%= yield :footer %>
+        </div>
+      
+      </footer>
+    </body>
+  </html>

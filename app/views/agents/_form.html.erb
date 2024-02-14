@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-center">
+<%= form_with model: @agent, class: "needs-validation", novalidate: true do |form| %>
+  <div class="mb-3 text-center">
+    <%= form.label :name, "Enter name", class: "form-label h3" %>
+    <%= form.text_field :name, class: "form-control text-center form-control-lg", placeholder: "Name" %>
+    <% @agent.errors.full_messages_for(:name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="mb-3 text-center">
+    <%= form.label :role, "Choose a role!", class: "form-label h3" %><br>
+    <%= form.select :role, ["SENTINEL", "DUELIST", "CONTROLLER", "INITIATOR"], {}, class: "form-select text-center form-select-lg" %>
+  </div>
+
+  <div class="mb-3 text-center">
+    <%= form.label :description, "Description", class: "form-label h3" %><br>
+    <%= form.text_area :description, class: "form-control text-center form-control-lg", placeholder: "Description" %>
+    <% @agent.errors.full_messages_for(:description).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="mb-3 text-center">
+    <%= form.label :ability_name, "Ability name", class: "form-label h3" %><br>
+    <%= form.text_field :ability_name, class: "form-control text-center form-control-lg", placeholder: "Ability name" %>
+    <% @agent.errors.full_messages_for(:ability_name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="mb-3 text-center">
+    <%= form.label :ability_description, "Ability description", class: "form-label h3" %><br>
+    <%= form.text_area :ability_description, class: "form-control text-center form-control-lg", placeholder: "Ability description" %>
+    <% @agent.errors.full_messages_for(:ability_description).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+    <div class="mb-3 text-center button-w">
+      <%= form.submit "SUBMIT", class: "btn btn-primary btn-dark btn-lg w-75" %>
+    </div>
+<% end %>
+</div>

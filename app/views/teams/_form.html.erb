@@ -1,0 +1,15 @@
+<div class="d-flex justify-content-center">
+  <%= form_with model: @team, class: "needs-validation", novalidate: true do |form| %>
+    <div class="mb-3 text-center">
+      <%= form.label :name, "ENTER NAME", class: "form-label h3" %>
+      <%= form.text_field :name, class: "form-control text-center form-control-lg", placeholder: "name", required: true %>
+        <% @team.errors.full_messages_for(:name).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
+    <div class="mb-3 text-center button-w">
+      <%= form.submit "SUBMIT", class: "btn btn-primary btn-dark btn-lg w-75" %>
+    </div>
+  <% end %>
+</div>
+
